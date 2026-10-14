@@ -55,6 +55,50 @@ class LifecycleMonitorActivity : AppCompatActivity() {
         okButton.setOnClickListener(buttonClickListener)
         val cancelButton = findViewById(R.id.cancel_button) as Button
         cancelButton.setOnClickListener(buttonClickListener)
-        Log.d(Constants.TAG, "onCreate() method was invoked without a previous state")
+        if (savedInstanceState == null) {
+            Log.d(Constants.TAG, "onCreate() method was invoked without a previous state")
+        } else {
+            Log.d(Constants.TAG, "onCreate() method was invoked with a previous state")
+        }
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d(Constants.TAG, "onRestart() method was invoked")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d(Constants.TAG, "onStart() method was invoked")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(Constants.TAG, "onResume() method was invoked")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(Constants.TAG, "onPause() method was invoked")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(Constants.TAG, "onStop() method was invoked")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(Constants.TAG, "onDestroy() method was invoked")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Log.d(Constants.TAG, "onSaveInstanceState() method was invoked")
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        Log.d(Constants.TAG, "onRestoreInstanceState() method was invoked")
     }
 }
